@@ -1,0 +1,17 @@
+{% extends "team/base.html" %}
+{% load staticfiles%}
+{% block title %}{{member.cn_name}}{% endblock%}
+
+{% block content %}
+    <h1>{{member.cn_name}}</h1>
+    <p><strong>Position</strong>: ${{member.position}}</p>
+    <p><strong>Department</strong>: {{member.department}}</p>
+    <div style='width:100%'>
+        <div style='float:left;width:50%'>
+            <strong>Abstract</strong>: {{product.abstract|linebreaks}}
+        </div>
+        <div>
+            <img style='width:50%;width:50%' src="{% static member.img  %}">
+        </div>
+    </div>
+{% endblock %}
