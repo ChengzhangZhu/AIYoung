@@ -7,4 +7,5 @@
 After run the server, enther the following URLs: 
 + Team Member List: http://127.0.0.1:8000/team
 + Admin Management: http://127.0.0.1:8000/admin
-
+	+ User Name: admin
+	+ Password: chengzhang
