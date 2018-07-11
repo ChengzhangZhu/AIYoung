@@ -9,7 +9,7 @@
             <a href="{{member.get_absolute_url}}">{{member.cn_name}}</a>
         </h2>
         <p class='date'>
-            Position: ${{member.position}}, Department: {{member.department}}
+            Position: {{member.position}}, Department: {{member.department}}
         </p>
         {{member.abstract|truncatewords:30|linebreaks}}
     {% endfor %}
