@@ -6,12 +6,12 @@
     <h1>Our Team Members</h1>
     {% for member in members%}
         <h2>
-            <a href="{{member.get_absolute_url}}">{{member.cn_name}}</a>
+            <a href="{{member.get_absolute_url}}">{{member.title}} {{member.name}}</a>
         </h2>
         <p class='date'>
-            Position: {{member.position}}, Department: {{member.department}}
+            Staff ID: {{member.staff_id}}
         </p>
-        {{member.abstract|truncatewords:30|linebreaks}}
+        {{member.biograph|truncatewords:30|linebreaks}}
     {% endfor %}
     {% include "pagination.html" with page=page_obj %}
 {% endblock %}

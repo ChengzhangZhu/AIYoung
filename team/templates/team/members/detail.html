@@ -3,12 +3,12 @@
 {% block title %}{{member.cn_name}}{% endblock%}
 
 {% block content %}
-    <h1>{{member.cn_name}}</h1>
-    <p><strong>Position</strong>: ${{member.position}}</p>
-    <p><strong>Department</strong>: {{member.department}}</p>
+    <h1>{{member.title}} {{member.name}}</h1>
+    <p><strong>Staff ID</strong>: {{member.staff_id}}</p>
+    <p><strong>Email</strong>: {{member.email}}</p>
     <div style='width:100%'>
         <div style='float:left;width:50%'>
-            <strong>Abstract</strong>: {{product.abstract|linebreaks}}
+            <strong>Abstract</strong>: {{product.biograph|linebreaks}}
         </div>
         <div>
             <img style='width:50%;width:50%' src="{% static member.img  %}">
