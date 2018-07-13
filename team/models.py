@@ -13,13 +13,12 @@ class Member(models.Model):
     telephone = models.CharField(max_length = 20)
     biograph = models.TextField()
     research_interests = models.TextField()
-    photo = models.ImageField(upload_to='img/')
+    photo = models.ImageField(upload_to='member/img/')
     abstract = models.TextField()
     position = models.CharField(max_length = 250)
-    img = models.ImageField(upload_to='member/')
     
     def get_absolute_url(self):
-        return reverse('member:detail',
+        return reverse('team:member_detail',
                        args=[self.staff_id])
     def __str__(self):
         return self.name

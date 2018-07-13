@@ -8,10 +8,10 @@
     <p><strong>Email</strong>: {{member.email}}</p>
     <div style='width:100%'>
         <div style='float:left;width:50%'>
-            <strong>Abstract</strong>: {{product.biograph|linebreaks}}
+            <strong>Abstract</strong>: {{member.biograph|linebreaks}}
         </div>
         <div>
-            <img style='width:50%;width:50%' src="{% static member.img  %}">
+            <img style='width:50%;width:50%' src="{{ member.photo.url }}">
         </div>
     </div>
 {% endblock %}

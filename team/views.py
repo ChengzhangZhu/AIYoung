@@ -13,6 +13,6 @@ def Member_Detail(request, staff_id):
     member = get_object_or_404(Member, staff_id=staff_id
                              )
     return render(request,
-                  'team/memebers/detail.html',
+                  'team/members/detail.html',
                   {'member':member,
                   })
