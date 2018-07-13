@@ -1,0 +1,17 @@
+{% extends "team/base.html" %}
+{% load staticfiles%}
+{% block title %}{{member.cn_name}}{% endblock%}
+
+{% block content %}
+    <h1>{{member.title}} {{member.name}}</h1>
+    <p><strong>Staff ID</strong>: {{member.staff_id}}</p>
+    <p><strong>Email</strong>: {{member.email}}</p>
+    <div style='width:100%'>
+        <div style='float:left;width:50%'>
+            <strong>Abstract</strong>: {{member.biograph|linebreaks}}
+        </div>
+        <div>
+            <img style='width:50%;width:50%' src="{{ member.photo.url }}">
+        </div>
+    </div>
+{% endblock %}

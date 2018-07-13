@@ -1,17 +1,115 @@
-{% extends "team/base.html" %}
-{% load staticfiles%}
-{% block title %}{{member.cn_name}}{% endblock%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="/static/css/detail.css">
+</head>
+<body>
+  <div id="app">
+    <section class="author">
+      <div class="author-background"></div>
+      <div class="author-wrapper">
+        <div class="author-content">
+          <div class="author-content-wrapper">
+            <div class="author-avator">
+              <img src="{{member.photo}}" alt="">
+            </div>
+            <div class="author-details">
+              <h1 class="author-name">{{member.name}}</h1>
+              <div class="author-intro">
+                <p>
+                    {{member.name}}({{member.name_en}})，出生于{{member.dob}}，研究方向{{member.research_interests}}
+                </p>
+                <p>
+                  {{member.biograph}}
+                </p>
+                <p>
+                  邮箱：{{member.email}}
+                </p>
+                <p>
+                  电话： {{member.telephone}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pubs">
+      <div class="pubs-wrapper">
+        <div class="pubs-header">
+          <h2 class="pubs-header-title">Authored publications</h2>
+        </div>
+        <div class="pubs-main">
+          <div class="pubs-main-pagination">
+            <div class="block">
+                <el-pagination
+                  @current-change="handleCurrentChange"
+                  :current-page.sync="currentPage"
+                  :page-size="15"
+                  layout="total, prev, pager, next"
+                  :total="23">
+                </el-pagination>
+              </div>
+          </div>
+          <div class="pubs-classify">
+              <div class="author-areas">
+                <h3>研究成果</h3>
+                <div class="author-area">
+                  <p>
+                    <span class="el-icon-caret-right"></span>
+                      Machine Intelligence1
+                  </p>
+                </div>
+              </div>
+          </div>
+          <div class="pubs-list">
+              {% for publication in member.publication_list %} 
+              <h2>{{publication.reference}}</h2>
+            {% endfor %}
+            <p >thiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis 
+              is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthii
+              s is a paperthiis is a paperthis is a paperthiis is a paper</p>
+            <p>>thiis is a paper</p>
+            <p>>thiis is a paper</p>
+            <p>>thiis is a paper</p>
+            <p>>thiis is a paper</p>
+            <p>>thiis is a paper</p>
+            <p>>thiis is a paper</p>
+            <p>>thiis is a paper</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+  function getQueryString(name) { 
+    let reg = `(^|&)${name}=([^&]*)(&|$)`
+    let r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); return null; 
+  }
 
-{% block content %}
-    <h1>{{member.title}} {{member.name}}</h1>
-    <p><strong>Staff ID</strong>: {{member.staff_id}}</p>
-    <p><strong>Email</strong>: {{member.email}}</p>
-    <div style='width:100%'>
-        <div style='float:left;width:50%'>
-            <strong>Abstract</strong>: {{member.biograph|linebreaks}}
-        </div>
-        <div>
-            <img style='width:50%;width:50%' src="{{ member.photo.url }}">
-        </div>
-    </div>
-{% endblock %}
+    var app = new Vue({
+      el: '#app',
+      data: {
+          message: 'Hello Vue!',
+          visible: false,
+          currentPage: 1,
+      },
+      methods: {
+        handleCurrentChange(page) {
+          window.location.href = "?page=" + page
+        }
+      },
+      created: function() {
+        var page = getQueryString('page')
+        this.currentPage = +page || 1
+      }
+    })
+</script>
+</html>

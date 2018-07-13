@@ -1,17 +1,93 @@
-{% extends "team/base.html" %}
-
-{% block title %}Our Team Members{% endblock %}
-
-{% block content %}
-    <h1>Our Team Members</h1>
-    {% for member in members%}
-        <h2>
-            <a href="{{member.get_absolute_url}}">{{member.title}} {{member.name}}</a>
-        </h2>
-        <p class='date'>
-            Staff ID: {{member.staff_id}}
-        </p>
-        {{member.biograph|truncatewords:30|linebreaks}}
-    {% endfor %}
-    {% include "pagination.html" with page=page_obj %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="/static/css/list.css">
+</head>
+<body>
+  <div id="app">
+    <el-container>
+        <el-main class="home-top">
+          <el-row :gutter="20">
+              <el-col :span="12">
+                <img src="/static/img/1.jpg" class="team-img">
+              </el-col>
+              <el-col :span="12">
+                {% for member in members%}
+                  <h2>
+                      <a href="{{member.get_absolute_url}}">{{member.title}} {{member.name}}</a>
+                  </h2>
+                  <p class='date'>
+                      Staff ID: {{member.staff_id}}
+                  </p>
+                  {{member.biograph|truncatewords:30|linebreaks}}
+                {% endfor %}
+              </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
+    <el-container>
+      <el-main>
+        <el-row :gutter="20">
+          {% for member in members%}
+          <el-col :span="6">
+            <el-card class="member">
+              <div class="member-intro">
+                <div class="member-name">{{member.name}}</div>
+                <div class="member-avator">
+                  <a href="{{member.get_absolute_url}}"><img src="/{{member.photo}}"></a>
+                </div>
+                <div class="research-brow">Research area(s)</div>
+                <div class="member-result">
+                  <p>
+                      {{member.research_interests}}
+                  </p>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          {% endfor %}
+        </el-row>
+        <div class="block">
+            <el-pagination
+              @current-change="handleCurrentChange"
+              :current-page.sync="currentPage"
+              layout="total, prev, pager, next"
+              :page-size="6"
+              :total="23">
+            </el-pagination>
+          </div>
+      </el-main>
+    </el-container>
+    
+  </div>
+  
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    function getQueryString(name) { 
+      let reg = `(^|&)${name}=([^&]*)(&|$)`
+      let r = window.location.search.substr(1).match(reg); 
+      if (r != null) return unescape(r[2]); return null; 
+    }
+    var app = new Vue({
+      el: '#app',
+      data: {
+          message: 'Hello Vue!',
+          currentPage: 1,
+      },
+      methods: {
+        handleCurrentChange(page) {
+          window.location.href = "?page=" + page
+        }
+      },
+      created: function() {
+        var page = getQueryString('page')
+        this.currentPage = +page || 1
+      }
+    })
+</script>
+</html>

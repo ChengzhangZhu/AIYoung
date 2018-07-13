@@ -1,0 +1,86 @@
+body {
+  color: #5f6368;
+  font-family: 'Google Sans', Arial, Helvetica, sans-serif;
+}
+.el-row {
+  margin-bottom: 20px;
+}
+.el-col {
+  border-radius: 4px;
+}
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
+}
+
+
+.team-img{
+  height: 400px;
+  width: 400px;
+}
+.member {
+  position: relative;
+  min-height: 277px;
+}
+.member::before {
+  background: #f1f3f4;
+  content: '';
+  display: block;
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.member-name {
+  position: absolute;
+  font-size: 18px;
+  z-index: 1;
+  top: 20px;
+  line-height: 22px;
+  justify-content: center;
+  height: 44px;
+  font-weight: 500;
+  letter-spacing: normal;
+  transition: color .4s;
+}
+.member-avator {
+  position: absolute;
+  z-index: 1;
+  top: 65px;
+}
+.member-avator img{
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+}
+
+.research-brow {
+  margin: 140px 0 10px 0;
+  font-size: 12px;
+  color: #9aa0a6;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase
+}
+.member-result p a {
+  display: block;
+  text-decoration: none;
+  color: #4285f4;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 17px;
+}

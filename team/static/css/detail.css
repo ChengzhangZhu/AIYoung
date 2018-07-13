@@ -1,0 +1,135 @@
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.author {
+  position: relative;
+}
+
+.author-background {
+  background-image: url('https://ai.google/static/images/research/people/people-detail-hero.jpg');
+  height: 350px;
+}
+
+.author-wrapper {
+  max-width: 1348px;
+  padding: 0 20px;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.author-content {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60px;
+}
+.author-content-wrapper {
+  box-sizing: content-box; 
+  margin-top: -120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.author-details {
+  margin-left: 8px;
+}
+.author-avator {
+  flex: 0 0 25%;
+}
+.author-avator img {
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+}
+
+.author-name {
+  font-size: 45px;
+  letter-spacing: -0.5px;
+  line-height: 0;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.author-intro {
+  padding-left: 12px;
+}
+.author-areas {
+  display: flex;
+  flex-wrap: wrap;
+}
+.author-areas h3 {
+  margin: 5px auto;
+}
+.author-area {
+  height: 30px;
+  padding-right: 10px;
+}
+.author-area p{
+  display: inline-block;
+  font-weight: 700;
+}
+
+.pubs {
+  background: transparent;
+  padding: 85px 0;
+}
+.pubs-wrapper {
+  max-width: 1348px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.pubs-header {
+  position: relative;
+  flex: 0 0 100%;
+}
+.pubs-header::before {
+  background: #9aa0a6;
+  bottom: 12px;
+  content: '';
+  display: block;
+  height: 2px;
+  left: 1.09375vw;
+  opacity: .3;
+  position: absolute;
+  right: 1.09375vw;
+}
+.pubs-header-title {
+  flex: 1 0 auto;
+  font-size: 35px;
+  letter-spacing: -0.4px;
+  line-height: 44px;
+  padding-left: 22px;
+}
+.pubs-main {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-left: 22px; 
+}
+.pubs-main-pagination {
+  position: absolute;
+  top: 25px;
+  right: 10px;
+}
+.pubs-classify {
+  background: #d6deec;
+  width: 20%;
+  margin-top: 100px;
+  float: left;
+  min-height: 280px;
+  display: inline-block;
+}
+.pubs-list{
+  float: left;
+  margin-top: 100px;
+  width: 70%;
+  padding-left: 28px;
+}
+.pubs-list p {
+  line-height: 18px;
+}
