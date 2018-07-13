@@ -25,12 +25,6 @@
                 <p>
                   {{member.biograph}}
                 </p>
-                <p>
-                  邮箱：{{member.email}}
-                </p>
-                <p>
-                  电话： {{member.telephone}}
-                </p>
               </div>
             </div>
           </div>
@@ -44,27 +38,35 @@
         </div>
         <div class="pubs-main">
           <div class="pubs-main-pagination">
-            <div class="block">
-                <el-pagination
-                  @current-change="handleCurrentChange"
-                  :current-page.sync="currentPage"
-                  :page-size="15"
-                  layout="total, prev, pager, next"
-                  :total="23">
-                </el-pagination>
-              </div>
+             <div class="block">
+              <el-pagination
+                @current-change="handleCurrentChange"
+                :current-page.sync="currentPage"
+                :page-size="15"
+                layout="total, prev, pager, next"
+                :total="23">
+              </el-pagination>
+            </div>
           </div>
           <div class="pubs-classify">
-              <div class="author-areas">
-                <h3>研究成果</h3>
-                <div class="author-area">
-                  <p>
-                    <span class="el-icon-caret-right"></span>
-                      Machine Intelligence1
-                  </p>
-                </div>
+            <div class="author-areas">
+              <h3>研究经历</h3>
+              <div class="author-area">
+                <p>
+                  <span class="el-icon-caret-right"></span>
+                    Machine Intelligence1
+                </p>
               </div>
-          </div>
+            </div>
+            <div class="author-contact">
+              <p>
+                邮箱：{{member.email}}
+              </p>
+              <p>
+                电话： {{member.telephone}}
+              </p>
+            </div>
+        </div>
           <div class="pubs-list">
               {% for publication in member.publication_list %} 
               <h2>{{publication.reference}}</h2>

@@ -9,27 +9,32 @@
 <body>
   <div id="app">
     <el-container>
-        <el-main class="home-top">
+        <el-main class="home-top" v-bind:style="{paddingLeft: '175px', paddingRight: '175px'}">
           <el-row :gutter="20">
               <el-col :span="12">
                 <img src="/static/img/1.jpg" class="team-img">
               </el-col>
               <el-col :span="12">
-                {% for member in members%}
-                  <h2>
-                      <a href="{{member.get_absolute_url}}">{{member.title}} {{member.name}}</a>
-                  </h2>
-                  <p class='date'>
-                      Staff ID: {{member.staff_id}}
-                  </p>
-                  {{member.biograph|truncatewords:30|linebreaks}}
-                {% endfor %}
+                <div class="team-intro">
+                  <h2 class="team-intro-title">团队简介</h2>
+                  <div class="team-intro-content">
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                      这里是团队简介这里是团队简介这里是团队简介
+                  </div>
+                </div>
               </el-col>
           </el-row>
         </el-main>
       </el-container>
     <el-container>
-      <el-main>
+      <el-main v-bind:style="{paddingLeft: '175px', paddingRight: '175px'}">
         <el-row :gutter="20">
           {% for member in members%}
           <el-col :span="6">
