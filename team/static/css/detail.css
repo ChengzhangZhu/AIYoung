@@ -132,6 +132,21 @@ html {
   border-radius: 5px;
   display: inline-block;
 }
+.experience-wrapper {
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+.experience-name {
+  margin: 0 auto;
+}
+.experience-time, .experience-task {
+  font-weight: 400;
+  font-size: 14px;
+}
+.experience-desc {
+  font-size: 12px;
+
+}
 .pubs-list{
   float: left;
   margin-top: 100px;

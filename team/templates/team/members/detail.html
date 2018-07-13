@@ -14,7 +14,7 @@
         <div class="author-content">
           <div class="author-content-wrapper">
             <div class="author-avator">
-              <img src="{{member.photo}}" alt="">
+              <img src="{{member.photo.url}}" alt="">
             </div>
             <div class="author-details">
               <h1 class="author-name">{{member.name}}</h1>
@@ -51,36 +51,42 @@
           <div class="pubs-classify">
             <div class="author-areas">
               <h3>研究经历</h3>
-              <div class="author-area">
-                <p>
-                  <span class="el-icon-caret-right"></span>
-                    Machine Intelligence1
-                </p>
+              {% for experience in member.experience_list %}
+              <div class="experience-wrapper">
+                <div class="author-area">
+                  <p>
+                    {{experience.name}}
+                  </p>
+                </div>
+                <div class="author-area">
+                  <p>
+                    <span class="el-icon-caret-right"></span>
+                      时间：{{experience.start_time}} ~ {{experience.end_time}}
+                  </p>
+                </div>
+                <div class="author-area">
+                  <p>
+                    <span class="el-icon-caret-right"></span>
+                      主要任务： {{experience.main_task}}
+                  </p>
+                </div>
+                <div class="author-area">
+                  <p>
+                    experience.description
+                  </p>
+                </div>
               </div>
+              {% endfor %}
             </div>
-            <div class="author-contact">
-              <p>
-                邮箱：{{member.email}}
-              </p>
-              <p>
-                电话： {{member.telephone}}
-              </p>
-            </div>
-        </div>
+          </div>
           <div class="pubs-list">
-              {% for publication in member.publication_list %} 
-              <h2>{{publication.reference}}</h2>
+            {% for publication in member.publication_list %} 
+              <p>{{publication.reference}}
+                <a href="{{publication.demo_link}}">[在线链接]</a>
+                <a href="{{publication.source_code}}">code</a>
+                <a href="{{publication.manuscript}}">pdf</a>
+              </p>
             {% endfor %}
-            <p >thiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis 
-              is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthiis is a paperthii
-              s is a paperthiis is a paperthis is a paperthiis is a paper</p>
-            <p>>thiis is a paper</p>
-            <p>>thiis is a paper</p>
-            <p>>thiis is a paper</p>
-            <p>>thiis is a paper</p>
-            <p>>thiis is a paper</p>
-            <p>>thiis is a paper</p>
-            <p>>thiis is a paper</p>
           </div>
         </div>
       </div>
