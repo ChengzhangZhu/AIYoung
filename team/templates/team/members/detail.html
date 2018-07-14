@@ -51,7 +51,7 @@
           <div class="pubs-classify">
             <div class="author-areas">
               <h3>研究经历</h3>
-              {% for experience in member.experience_list %}
+              {% for experience in member.experience_list.all %}
               <div class="experience-wrapper">
                 <div class="author-area">
                   <p>
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div class="pubs-list">
-            {% for publication in member.publication_list %} 
+            {% for publication in member.publication_list.all %}
               <p>{{publication.reference}}
                 <a href="{{publication.demo_link}}">[在线链接]</a>
                 <a href="{{publication.source_code}}">code</a>
