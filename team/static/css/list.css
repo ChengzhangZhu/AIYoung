@@ -25,7 +25,11 @@ body {
   padding: 10px 0;
   background-color: #f9fafc;
 }
-
+@media screen and (max-width: 1000px) {
+  .team-img {
+    width: 100% !important;
+  }
+}
 .home-top {
   padding: 0 175px;
 }
@@ -33,9 +37,14 @@ body {
   height: 400px;
   width: 400px;
 }
+.team-intro {
+  height: 404px;
+  overflow: hidden;
+}
 .member {
   position: relative;
-  min-height: 277px;
+  height: 305px;
+  overflow: hidden;
 }
 .member::before {
   background: #f1f3f4;
