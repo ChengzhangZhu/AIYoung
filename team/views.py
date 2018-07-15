@@ -16,3 +16,4 @@ def Member_Detail(request, staff_id):
                   'team/members/detail.html',
                   {'member':member,
                   })
+

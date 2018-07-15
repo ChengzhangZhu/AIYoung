@@ -25,7 +25,7 @@ SECRET_KEY = 'ywqa3n7w^$g7btuiz*tk3m2xjb(opg4017@5$w=txkv@tj^-ad'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.aiyoung.com.cn','47.99.42.34','127.0.0.1','0.0.0.0']
 
 
 # Application definition

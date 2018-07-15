@@ -134,11 +134,12 @@ html {
 }
 .experience-wrapper {
   border: 1px solid #ccc;
-  padding: 4px;
+  padding: 4px 4px 14px 4px;
+  margin-top: 16px;
 }
-.experience-name {
+/* .experience-name {
   margin: 0 auto;
-}
+} */
 .experience-time, .experience-task {
   font-weight: 400;
   font-size: 14px;
@@ -156,3 +157,49 @@ html {
 .pubs-list p {
   line-height: 18px;
 }
+.clearfix:before,
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix:after {clear: both;}
+
+.experience-name {
+  font-weight: 600;
+  font-size: 18px;
+}
+.experience-task {
+  position: relative;
+}
+.experience-task p{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden
+}
+.experience-task button{
+  font-size: 12px;
+  position: absolute;
+  color: #606060;
+  right: 0;
+  bottom: -30px;
+}
+.experience-desc {
+  margin-top: 28px;
+  position: relative;
+} 
+.experience-desc p{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden
+}
+.experience-desc button{
+  font-size: 12px;
+  position: absolute;
+  color: #606060;
+  right: 0;
+  bottom: -30px;
+} 

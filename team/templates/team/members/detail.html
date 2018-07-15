@@ -36,7 +36,8 @@
         <div class="pubs-header">
           <h2 class="pubs-header-title">Authored publications</h2>
         </div>
-        <div class="pubs-main">
+        <div class="pubs-main clearfix">
+        <!--
           <div class="pubs-main-pagination">
              <div class="block">
               <el-pagination
@@ -48,40 +49,43 @@
               </el-pagination>
             </div>
           </div>
+         -->
           <div class="pubs-classify">
             <div class="author-areas">
               <h3>研究经历</h3>
-              {% for experience in member.experience_list %}
+              {% for experience in member.experience_list.all %}
               <div class="experience-wrapper">
-                <div class="author-area">
+                <div class="experience-name">
                   <p>
-                    {{experience.name}}
+                    {{experience.name}}主要任务：主要任务
                   </p>
                 </div>
-                <div class="author-area">
+                <div class="experience-time">
                   <p>
                     <span class="el-icon-caret-right"></span>
                       时间：{{experience.start_time}} ~ {{experience.end_time}}
                   </p>
                 </div>
-                <div class="author-area">
-                  <p>
-                    <span class="el-icon-caret-right"></span>
+                <div class="experience-task">
+                  <p id="experience-task">
                       主要任务： {{experience.main_task}}
                   </p>
+                  <el-button type="text" @click="openTask">查看完整任务</el-button>
                 </div>
-                <div class="author-area">
-                  <p>
-                    experience.description
+                <div class="experience-desc">
+                  <p id="experience-desc">
+                    {{experience.description}}
                   </p>
+                  <el-button type="text" @click="openDesc">查看完整描述</el-button>
                 </div>
               </div>
               {% endfor %}
+              
             </div>
           </div>
           <div class="pubs-list">
-            {% for publication in member.publication_list %} 
-              <p>{{publication.reference}}
+            {% for publication in member.publication_list.all %}
+              <p>{{publication.authors}} ." {{publication.title}} ." {{publication.venue_name}} ({{publication.year}}) {{publication.volume}}-{{publication.number_v}} p.{{publication.page_v}}
                 <a href="{{publication.demo_link}}">[在线链接]</a>
                 <a href="{{publication.source_code}}">code</a>
                 <a href="{{publication.manuscript}}">pdf</a>
@@ -101,6 +105,8 @@
     let r = window.location.search.substr(1).match(reg); 
     if (r != null) return unescape(r[2]); return null; 
   }
+  var experienceTaskText = document.getElementById('experience-task').innerText
+  var experienceDescText = document.getElementById('experience-desc').innerText
 
     var app = new Vue({
       el: '#app',
@@ -112,7 +118,13 @@
       methods: {
         handleCurrentChange(page) {
           window.location.href = "?page=" + page
-        }
+        },
+        openTask() {
+          this.$alert(experienceTaskText, '研究的主要任务', {});
+        },
+        openDesc() {
+          this.$alert(experienceDesckText, '研究描述', {});
+        },
       },
       created: function() {
         var page = getQueryString('page')

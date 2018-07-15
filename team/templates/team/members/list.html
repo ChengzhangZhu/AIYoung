@@ -88,7 +88,7 @@
               :current-page.sync="currentPage"
               layout="total, prev, pager, next"
               :page-size="6"
-              :total="23">
+              :total="{{page_obj.paginator.num_pages}}">
             </el-pagination>
           </div>
       </el-main>
