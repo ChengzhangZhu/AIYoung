@@ -83,7 +83,7 @@
           </div>
           <div class="pubs-list">
             {% for publication in member.publication_list.all %}
-              <p>{{publication.reference}}
+              <p>{{publication.authors}} ." {{publication.title}} ." {{publication.venue_name}} ({{publication.year}}) {{publication.volume}}-{{publication.number_v}} p.{{publication.page_v}}
                 <a href="{{publication.demo_link}}">[在线链接]</a>
                 <a href="{{publication.source_code}}">code</a>
                 <a href="{{publication.manuscript}}">pdf</a>
