@@ -25,7 +25,7 @@ body {
   padding: 10px 0;
   background-color: #f9fafc;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1140px) {
   .team-img {
     width: 100% !important;
   }
