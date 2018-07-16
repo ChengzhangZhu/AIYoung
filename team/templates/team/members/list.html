@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>AI Young</title>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="/static/css/list.css">
 </head>
@@ -46,9 +46,14 @@
                 </div>
                 <div class="research-brow">Research area(s)</div>
                 <div class="member-result">
-                  <p>
+                  <!-- <p>
                       {{member.research_interests}}
-                  </p>
+                  </p> -->
+                  <div class="interets-content">
+                    {% for interest in member.research_interests %}
+                      <span class="interets-item">{{interest}}</span>
+                    {% endfor %}
+                  </div>
                 </div>
               </div>
             </el-card>

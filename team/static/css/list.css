@@ -95,3 +95,11 @@ body {
   font-size: 13px;
   line-height: 17px;
 }
+.interets-content {
+  overflow: hidden;
+  height: 120px;
+}
+.interets-content .interets-item {
+  display: block;
+  line-height: 22px;
+}

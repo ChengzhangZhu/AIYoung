@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>AI Young</title>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="/static/css/detail.css">
 </head>
@@ -19,12 +19,32 @@
             <div class="author-details">
               <h1 class="author-name">{{member.name}}</h1>
               <div class="author-intro">
-                <p>
-                    {{member.name}}({{member.name_en}})，出生于{{member.dob}}，研究方向{{member.research_interests}}
-                </p>
-                <p>
+                <div class="author-intro-name">
+                    {{member.name}}({{member.name_en}})。
+                </div>
+                <div class="author-phone">
+                  <span class="el-icon-mobile-phone"></span>
+                  {{member.telephone}}
+                </div>
+                <div class="author-email">
+                  <span class="el-icon-message"></span>
+                  {{member.email}}
+                </div>
+                <!-- <div class="author-intro-areas">
+                  <div class="areas-title">研究方向</div>
+                  <div class="areas-content">
+                    <p class="areas-item">dsdsadasdasda</p>
+                    <p class="areas-item">dsdsadasdasda</p>
+                    <p class="areas-item">dsdsadasdasda</p>
+                  </div>
+                </div> -->
+                <div class="author-biograph">
+                  <p v-bind:style="{display: authorIntroIsOpen ? 'block' : '-webkit-box'}">{{member.biograph}}</p>
+                  <span @click="openAuthorIntro">[[authorIntroIsOpen? '收起' : '查看']]完整简介</span>
+                </div>
+                <!-- <p>
                   {{member.biograph}}
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
@@ -91,6 +111,7 @@
                 <a href="{{publication.manuscript}}">pdf</a>
               </p>
             {% endfor %}
+            
           </div>
         </div>
       </div>
@@ -110,9 +131,9 @@
 
     var app = new Vue({
       el: '#app',
+      delimiters:['[[', ']]'],
       data: {
-          message: 'Hello Vue!',
-          visible: false,
+          authorIntroIsOpen: false,
           currentPage: 1,
       },
       methods: {
@@ -125,6 +146,9 @@
         openDesc() {
           this.$alert(experienceDescText, '研究描述', {});
         },
+        openAuthorIntro() {
+          this.authorIntroIsOpen = !this.authorIntroIsOpen
+        }
       },
       created: function() {
         var page = getQueryString('page')
