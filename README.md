@@ -12,9 +12,9 @@ After run the server, you can enter the following URLs:
 
 ## PHP developing environment deployment
 1. 安装Netbeans + Wampserver
-  1) Wampser: https://sourceforge.net/projects/wampserver/
-  2) Netbeans: https://netbeans.org/
-  3) Netbeans PHP Plugin：Toos>Plugins>Available Plugins>PHP
+  A. Wampser: https://sourceforge.net/projects/wampserver/
+  B. Netbeans: https://netbeans.org/
+  C. Netbeans PHP Plugin：Toos>Plugins>Available Plugins>PHP
 2. 找到Wampserver的www目录，用Netbeans该目录新建工程
 3. 右键单击工程>Properties>Run Configuration>http://localhost/xxx(项目名称)/
 4. Netbeans设置PHP调试端口：Toos>Options>PHP填写端口号
