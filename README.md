@@ -12,10 +12,11 @@ After run the server, you can enter the following URLs:
 
 ## PHP developing environment deployment
 1. 安装Netbeans + Wampserver
-1) Wampser: https://sourceforge.net/projects/wampserver/
-2) Netbeans：Toos>Plugins>Available Plugins>PHP
+  1) Wampser: https://sourceforge.net/projects/wampserver/
+  2) Netbeans: https://netbeans.org/
+  3) Netbeans PHP Plugin：Toos>Plugins>Available Plugins>PHP
 2. 找到Wampserver的www目录，用Netbeans该目录新建工程
-3. 右键单击工程>Properties>Run Configuration>http://localhost/PhpLearner/
+3. 右键单击工程>Properties>Run Configuration>http://localhost/xxx(项目名称)/
 4. Netbeans设置PHP调试端口：Toos>Options>PHP填写端口号
 5. Wampserver设置调试端口：左键单击Wampserver，php设置里php.ini底部加入以下设置，端口号需与上面的一致
 xdebug.remote_enable=on
