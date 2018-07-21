@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="../css/enter.css" rel="stylesheet">
+    <title>AI Young</title>
+</head>
+<body>
+        
+    <div id="app">
+        <div class="home">
+          <h1 class="title">AI Young</h1>
+          <a href="members/list.php">
+            <el-button
+            v-bind:style="{marginLeft: '92px'}"
+            type="primary"
+            plain>点击进入</el-button>
+          </a>
+          
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var app = new Vue({
+        delimiters:['[[', ']]'],
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            visible: false
+        }
+    })
+    
+</script>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Young</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../../css/detail.css">
+</head>
+<body>
+  <div id="app">
+    <section class="author">
+      <div class="author-background"></div>
+      <div class="author-wrapper">
+        <div class="author-content">
+          <div class="author-content-wrapper">
+            <div class="author-avator">
+              <img src="{{member.photo.url}}" alt="">
+            </div>
+            <div class="author-details">
+              <h1 class="author-name">{{member.name}}</h1>
+              <div class="author-intro">
+                <div class="author-intro-name">
+                    {{member.name}}({{member.name_en}})。
+                </div>
+                <div class="author-phone">
+                  <span class="el-icon-mobile-phone"></span>
+                  {{member.telephone}}
+                </div>
+                <div class="author-email">
+                  <span class="el-icon-message"></span>
+                  {{member.email}}
+                </div>
+                <!-- <div class="author-intro-areas">
+                  <div class="areas-title">研究方向</div>
+                  <div class="areas-content">
+                    <p class="areas-item">dsdsadasdasda</p>
+                    <p class="areas-item">dsdsadasdasda</p>
+                    <p class="areas-item">dsdsadasdasda</p>
+                  </div>
+                </div> -->
+                <div class="author-biograph">
+                  <p v-bind:style="{display: authorIntroIsOpen ? 'block' : '-webkit-box'}">{{member.biograph}}</p>
+                  <span @click="openAuthorIntro">[[authorIntroIsOpen? '收起' : '查看']]完整简介</span>
+                </div>
+                <!-- <p>
+                  {{member.biograph}}
+                </p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pubs">
+      <div class="pubs-wrapper">
+        <div class="pubs-header">
+          <h2 class="pubs-header-title">Authored publications</h2>
+        </div>
+        <div class="pubs-main clearfix">
+        <!--
+          <div class="pubs-main-pagination">
+             <div class="block">
+              <el-pagination
+                @current-change="handleCurrentChange"
+                :current-page.sync="currentPage"
+                :page-size="15"
+                layout="total, prev, pager, next"
+                :total="23">
+              </el-pagination>
+            </div>
+          </div>
+         -->
+          <div class="pubs-classify">
+            <div class="author-areas">
+              <h3>研究经历</h3>
+              {% for experience in member.experience_list.all %}
+              <div class="experience-wrapper">
+                <div class="experience-name">
+                  <p>
+                    {{experience.name}}主要任务：主要任务
+                  </p>
+                </div>
+                <div class="experience-time">
+                  <p>
+                    <span class="el-icon-caret-right"></span>
+                      时间：{{experience.start_time}} ~ {{experience.end_time}}
+                  </p>
+                </div>
+                <div class="experience-task">
+                  <p id="experience-task">
+                      主要任务： {{experience.main_task}}
+                  </p>
+                  <el-button type="text" @click="openTask">查看完整任务</el-button>
+                </div>
+                <div class="experience-desc">
+                  <p id="experience-desc">
+                    {{experience.description}}
+                  </p>
+                  <el-button type="text" @click="openDesc">查看完整描述</el-button>
+                </div>
+              </div>
+              {% endfor %}
+              
+            </div>
+          </div>
+          <div class="pubs-list">
+            {% for publication in member.publication_list.all %}
+              <p>{{publication.authors}} ." {{publication.title}} ." {{publication.venue_name}} ({{publication.year}}) {{publication.volume}}-{{publication.number_v}} p.{{publication.page_v}}
+                <a href="{{publication.demo_link}}">[在线链接]</a>
+                <a href="{{publication.source_code}}">code</a>
+                <a href="{{publication.manuscript}}">pdf</a>
+              </p>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+  function getQueryString(name) { 
+    let reg = `(^|&)${name}=([^&]*)(&|$)`
+    let r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); return null; 
+  }
+  var experienceTaskText = document.getElementById('experience-task').innerText
+  var experienceDescText = document.getElementById('experience-desc').innerText
+
+    var app = new Vue({
+      el: '#app',
+      delimiters:['[[', ']]'],
+      data: {
+          authorIntroIsOpen: false,
+          currentPage: 1,
+      },
+      methods: {
+        handleCurrentChange(page) {
+          window.location.href = "?page=" + page
+        },
+        openTask() {
+          this.$alert(experienceTaskText, '研究的主要任务', {});
+        },
+        openDesc() {
+          this.$alert(experienceDescText, '研究描述', {});
+        },
+        openAuthorIntro() {
+          this.authorIntroIsOpen = !this.authorIntroIsOpen
+        }
+      },
+      created: function() {
+        var page = getQueryString('page')
+        this.currentPage = +page || 1
+      }
+    })
+</script>
+</html>

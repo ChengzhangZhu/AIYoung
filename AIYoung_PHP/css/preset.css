@@ -1,0 +1,75 @@
+/*
+@Template Name: Kidzy
+@Version: 1.0
+@author themeum www.themeum.com
+@copyright Copyright (c) 2016 themeum
+@license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+*/
+
+/* ==========================================================================
+   Include Fonts
+   ========================================================================== */
+@import url(https://fonts.googleapis.com/css?family=Sniglet:400);
+@import url(https://fonts.googleapis.com/css?family=Flavors);
+
+/*font-family: 'Flavors', cursive;*/
+
+/* ==========================================================================
+   Normalization
+   ========================================================================== */
+body{
+    font-family: 'Sniglet', cursive;
+    font-size: 14px;
+    font-weight:  400;
+    line-height: 1;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 400;
+    margin: 0;
+    line-height: 1;
+}
+ul,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a,i{
+    display: inline-block;
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+a:hover,a:focus{
+    text-decoration: none;
+    outline-offset: 0;
+}
+p{
+    font-size: 16px;
+    color: #9a9a9a;
+}
+.no-padding{
+    padding: 0 !important;
+}
+.no-padding-left{
+    padding-left: 0 !important;
+}
+.no-padding-right{
+    padding-right: 0 !important;
+}
+input{
+    padding: 0;
+}
+input:focus{
+    outline: 0;
+}
+img{
+    max-width: 100%;
+}
+iframe{
+    border: 0;
+    float: left;
+    width: 100%;
+}
+/* ==========================================================================
+   End Normalization
+   ========================================================================== */
